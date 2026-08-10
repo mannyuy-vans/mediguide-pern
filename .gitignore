@@ -1,3 +1,4 @@
+cat > ../.gitignore <<'EOF'
 # Dependencies
 node_modules/
 
@@ -6,9 +7,8 @@ node_modules/
 .env.*
 !.env.example
 
-# Build files
-dist/
-build/
+# Prisma generated files
+**/src/generated/prisma/
 
 # Logs
 *.log
@@ -20,9 +20,9 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# VS Code
-.vscode/
-
-# Temporary files
-*.tmp
-*.temp
+# Development tool files
+.agents/
+.claude/
+.windsurf/
+skills-lock.json
+EOF
