@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PatientDashboard from "./pages/PatientDashboard";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -23,6 +25,13 @@ function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/patient/dashboard"
+            element={<PatientDashboard />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
