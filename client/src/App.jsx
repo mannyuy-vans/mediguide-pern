@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PatientDashboard from "./pages/PatientDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import DoctorDashboard from "./pages/DoctorDashboard";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,6 +12,8 @@ import HowItWorks from "./pages/HowItWorks";
 import Features from "./pages/Features";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import DoctorPatientDetails from "./pages/DoctorPatientDetails";
+import DoctorAppointments from "./pages/DoctorAppointments";
 
 import "./App.css";
 
@@ -30,6 +34,22 @@ function App() {
           <Route
             path="/patient/dashboard"
             element={<PatientDashboard />}
+          />
+          <Route
+            path="/admin/dashboard"
+            element={<AdminDashboard />}
+          />
+          <Route
+            path="/doctor/dashboard"
+            element={<DoctorDashboard />}
+          />
+          <Route
+            path="/doctor/patients/:patientId"
+            element={<DoctorPatientDetails />}
+          />
+          <Route
+            path="/doctor/appointments"
+            element={<DoctorAppointments />}
           />
         </Route>
       </Routes>

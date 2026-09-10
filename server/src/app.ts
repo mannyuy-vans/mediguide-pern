@@ -1,15 +1,29 @@
-import routes from "./routes/index.js";
-import { notFound } from "./middleware/notFound.js";
-import { errorHandler } from "./middleware/errorHandler.js";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+
 import prisma from "./config/prisma.js";
+import supabase from "./config/supabase.js";
+
+import routes from "./routes/index.js";
+import authRoutes from "./routes/auth.routes.js";
+import patientRoutes from "./routes/patient.routes.js";
+
+import { notFound } from "./middleware/notFound.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 
+// ================================
+// Security
+// ================================
+
 app.use(helmet());
+
+// ================================
+// CORS
+// ================================
 
 app.use(
   cors({
@@ -18,13 +32,36 @@ app.use(
   })
 );
 
+// ================================
+// Logging
+// ================================
+
 app.use(morgan("dev"));
+
+// ================================
+// Body parsing
+// ================================
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+// ================================
+// Routes
+// ================================
+
+// Authentication
+app.use("/api/auth", authRoutes);
+
+// Patient routes
+app.use("/api/patient", patientRoutes);
+
+// Other API routes
 app.use("/api", routes);
+
+// ================================
+// Health check
+// ================================
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({
@@ -32,6 +69,10 @@ app.get("/api/health", (req, res) => {
     message: "MEDIGUIDE API is running",
   });
 });
+
+// ================================
+// Database test
+// ================================
 
 app.get("/api/test-db", async (req, res) => {
   try {
@@ -54,5 +95,6 @@ app.get("/api/test-db", async (req, res) => {
 
 app.use(notFound);
 app.use(errorHandler);
+
 
 export default app;

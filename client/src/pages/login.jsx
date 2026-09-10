@@ -51,6 +51,9 @@ function Login() {
         return;
       }
 
+      console.log("Access token from login:", accessToken);
+      console.log("Session from login:", data.session);
+
       localStorage.setItem("accessToken", accessToken);
 
       localStorage.setItem(
@@ -63,7 +66,11 @@ function Login() {
       // Redirect according to the user's role
       if (data.user?.role === "PATIENT") {
         navigate("/patient/dashboard");
-      }
+        } else if (data.user?.role === "ADMIN") {
+        navigate("/admin/dashboard");
+        } else if (data.user?.role === "DOCTOR") {
+        navigate("/doctor/dashboard");
+        }
     } catch (error) {
       console.error("Login error:", error);
       alert("Unable to connect to the server.");
