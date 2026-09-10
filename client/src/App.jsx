@@ -14,6 +14,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DoctorPatientDetails from "./pages/DoctorPatientDetails";
 import DoctorAppointments from "./pages/DoctorAppointments";
+import DoctorAppointmentDetails from "./pages/DoctorAppointmentDetails";
+import PatientProfile from "./pages/PatientProfile";
 
 import "./App.css";
 
@@ -50,6 +52,14 @@ function App() {
           <Route
             path="/doctor/appointments"
             element={<DoctorAppointments />}
+          />
+          <Route
+            path="/doctor/appointments/:appointmentId"
+            element={<DoctorAppointmentDetails />}
+          />
+          <Route
+            path="/patient/profile"
+            element={<PatientProfile />}
           />
         </Route>
       </Routes>
