@@ -16,6 +16,7 @@ import DoctorPatientDetails from "./pages/DoctorPatientDetails";
 import DoctorAppointments from "./pages/DoctorAppointments";
 import DoctorAppointmentDetails from "./pages/DoctorAppointmentDetails";
 import PatientProfile from "./pages/PatientProfile";
+import PatientAppointments from "./pages/patient/PatientAppointments";
 
 import "./App.css";
 
@@ -60,6 +61,10 @@ function App() {
           <Route
             path="/patient/profile"
             element={<PatientProfile />}
+          />
+          <Route
+            path="/patient/appointments"
+            element={<PatientAppointments />}
           />
         </Route>
       </Routes>

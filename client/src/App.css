@@ -2932,3 +2932,251 @@
     grid-column: auto;
   }
 }
+/* =========================
+   PATIENT APPOINTMENTS
+========================= */
+
+.appointments-card {
+  margin-top: 24px;
+}
+
+.appointment-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.appointment-filters button {
+  border: 1px solid #dce3eb;
+  background: #fff;
+  color: #64748b;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.appointment-filters button:hover {
+  border-color: #6d5dfc;
+  color: #6d5dfc;
+}
+
+.appointment-filters button.active {
+  background: #6d5dfc;
+  border-color: #6d5dfc;
+  color: #fff;
+}
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appointment-item {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.appointment-date {
+  width: 58px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #f1efff;
+  color: #6d5dfc;
+}
+
+.appointment-date strong {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.appointment-date span {
+  font-size: 12px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.appointment-info {
+  min-width: 0;
+}
+
+.appointment-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.appointment-title h3 {
+  margin: 0;
+  font-size: 17px;
+  color: #172033;
+}
+
+.appointment-info > p {
+  margin: 6px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.appointment-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.appointment-reason {
+  margin-top: 10px !important;
+  color: #475569 !important;
+}
+
+.appointment-actions {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.status-badge.pending {
+  background: #fff7df;
+  color: #b77900;
+}
+
+.status-badge.confirmed {
+  background: #e7f8ef;
+  color: #16834a;
+}
+
+.status-badge.completed {
+  background: #e9f1ff;
+  color: #3567b8;
+}
+
+.status-badge.cancelled,
+.status-badge.rejected {
+  background: #fdecec;
+  color: #c43d3d;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.primary-button {
+  background: #6d5dfc;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #5b4bea;
+}
+
+.secondary-button {
+  background: #f1efff;
+  color: #6253d8;
+}
+
+.secondary-button:hover {
+  background: #e8e5ff;
+}
+
+.danger-button {
+  background: #fff0f0;
+  color: #c43d3d;
+}
+
+.danger-button:hover {
+  background: #ffe1e1;
+}
+
+.danger-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dashboard-error {
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #c43d3d;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #6d5dfc;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  animation: appointment-spin 0.8s linear infinite;
+}
+
+@keyframes appointment-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .appointment-item {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .appointment-actions {
+    grid-column: 2;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .appointment-item {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-actions {
+    grid-column: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
