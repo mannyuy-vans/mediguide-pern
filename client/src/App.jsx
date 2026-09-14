@@ -17,6 +17,7 @@ import DoctorAppointments from "./pages/DoctorAppointments";
 import DoctorAppointmentDetails from "./pages/DoctorAppointmentDetails";
 import PatientProfile from "./pages/PatientProfile";
 import PatientAppointments from "./pages/patient/PatientAppointments";
+import BookAppointment from "./pages/patient/BookAppointment";
 
 import "./App.css";
 
@@ -65,6 +66,10 @@ function App() {
           <Route
             path="/patient/appointments"
             element={<PatientAppointments />}
+          />
+          <Route
+            path="/patient/appointments/book"
+            element={<BookAppointment />}
           />
         </Route>
       </Routes>
